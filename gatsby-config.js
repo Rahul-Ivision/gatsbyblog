@@ -1,3 +1,8 @@
+const dotenv = require('dotenv')
+if(process.env.NODE_ENV !== 'production'){
+  dotenv.config()
+}
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
@@ -76,6 +81,16 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `bhmd5rxyo7wp`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: `e2HwFXylpRxz7rnJDHWF6NGwvlqaPGoDVLfz4VpM028`
+      },
+    },
+    `@contentful/gatsby-transformer-contentful-richtext`
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
